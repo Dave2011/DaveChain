@@ -16,7 +16,7 @@ var (
 )
 
 // set difficulty here, M3Max should use <= 17 to debug faster locally, but adjust as you think makes sense for your machine
-const targetBits = 4
+const targetBits = 18
 
 // IntToHex move to another helper file if needed
 func IntToHex(num int64) []byte {
@@ -73,7 +73,6 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 		if hashInt.Cmp(pow.target) == -1 {
 			break
 		} else {
-			println("hashInt: ", hashInt.String(), " pow.target: ", pow.target.String(), " nonce: ", nonce)
 			nonce++
 		}
 	}
